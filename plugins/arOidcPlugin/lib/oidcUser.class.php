@@ -183,6 +183,8 @@ class oidcUser extends myUser implements Zend_Acl_Role_Interface
             }
 
             $authenticated = true;
+            QubitUser::clearCache();
+
             // Refresh user so new groups and credentials are immediately available on signIn().
             $this->signIn(QubitUser::getById($user->id));
         }
